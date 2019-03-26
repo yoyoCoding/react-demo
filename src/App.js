@@ -19,7 +19,7 @@ class App extends Component {
 
         {/* 挂载子组件 */}
         <Home></Home>
-        <News></News>
+        {/* <News></News> */}
 
       </div>
     );

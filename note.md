@@ -112,4 +112,16 @@ class News extends React.Component {
 4. 方法传参  
 `onClick={this.setData.bind(this, 'params1', 'params2')}`  
 
+5. 获取事件节点  
+`event.target`  
 
+### 表单事件
+1. 监听表单的change事件
+2. 在change事件中获取input的值 (`event.target.value`获取 or ref获取`this.refs.refName.value`)
+3. 将获取到的value赋值给state的变量  
+4. input的value绑定state的数据  
+实现数据双向绑定  
+
+### 键盘事件
+onKeyUp、onKeyDown等
+获取keyCode`event.keyCode`
