@@ -44,6 +44,7 @@ class Home extends Component {
 ```
 
 > **警告：**  
-> 因为 JSX 的特性更接近 JavaScript 而不是 HTML , 所以 React DOM 使用 `camelCase` 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称  
+> 因为 JSX 的特性更接近 JavaScript 而不是 HTML , 所以 React DOM 使用 `camelCase` 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称 
+>
 > 例如，`class` 变成了 `className`，而 `tabindex` 则对应着 `tabIndex`， `for`对应`htmlFor`  
 > 行内style样式应该写做： `<span style={styleObj}>`
