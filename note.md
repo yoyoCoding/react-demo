@@ -64,6 +64,8 @@ class Home extends Component {
 * 方式一：遍历数组 (遍历数组转换为数组模板)
 * 方式二：直接渲染数组模板
 
+> 注意在遍历数组时给dom指定key  
+
 ```javascript
 class News extends React.Component {
     constructor(props) {
@@ -93,10 +95,21 @@ class News extends React.Component {
         )
     }
 }
-```
-
-> 注意在遍历数组时给dom指定key  
+```  
 
 ## 事件方法
-与render()同级定义方法，末尾不需要加逗号(,)
+1. 与render()同级定义方法，末尾不需要加逗号(,)
 绑定方法：`onClick={this.yourMethod}`
+
+2. 方法中获取数据 (无法通过this.state.xx获取) 自定义方法中无法获取当前组件的this
+* 方式一：调用方式时绑定this `onClick={this.getData.bind(this)}`
+* 方式二： 在constructor()中改变this指向 `this.getData = this.getData.bind(this)`
+* 方式三： 使用ej6的箭头函数定义方法，this会指向当前组件的this
+
+3. 改变state的值  
+`this.setState({msg: 'changeValue'})`  
+
+4. 方法传参  
+`onClick={this.setData.bind(this, 'params1', 'params2')}`  
+
+
