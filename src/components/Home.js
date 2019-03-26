@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../assets/css/Home.css'
+import imgDemo from '../assets/images/yeah.jpg'
 
 class Home extends Component {
     constructor(props) {
@@ -11,6 +12,10 @@ class Home extends Component {
             href: 'www.baidu.com'
         }
     }
+    
+    test() {
+        alert('我是test方法')
+    }
 
     render() {
         return (
@@ -19,6 +24,13 @@ class Home extends Component {
                 <span style={{color: 'grey'}}>我是节点--{this.state.name}</span>
                 <br/>
                 <a href={this.state.href}>我是绑定href属性的超链接</a>
+                <div>
+                    <img src={imgDemo} alt="demo" />
+                    <img src={require('../assets/images/yeah.jpg')} alt="demo" />
+                </div>
+                <div>
+                    <button onClick={this.test}>test事件</button>
+                </div>
             </div>
         )
     }

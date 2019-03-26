@@ -44,6 +44,63 @@ class Home extends Component {
 ```
 
 > **警告：**  
-> 因为 JSX 的特性更接近 JavaScript 而不是 HTML , 所以 React DOM 使用 `camelCase` 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称  
+> 因为 JSX 的特性更接近 JavaScript 而不是 HTML , 所以 React DOM 使用 `camelCase` 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称 
+>
 > 例如，`class` 变成了 `className`，而 `tabindex` 则对应着 `tabIndex`， `for`对应`htmlFor`  
+<<<<<<< HEAD
+> 行内style样式应该写做： `<span style={styleObj}>`  
+
+## 引入本地图片
+* 方式一：import图片，在src属性绑定引入图片
+* 方式二：es5语法require()引入
+
+`import imgDemo from '/images/1.png'`
+
+```html
+<img src={imgDemo} />
+<img src={require('/images/1.png')} />
+```  
+
+## 渲染数组
+* 方式一：遍历数组 (遍历数组转换为数组模板)
+* 方式二：直接渲染数组模板
+
+```javascript
+class News extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            list: ['111', '222', '333'],
+            list2: [
+                <li key='1'>item1</li>,
+                <li key='2'>item2</li>,
+                <li key='3'>item3</li>
+            ]
+        }
+    }
+    render() {
+        // 也可以直接在dom中循环渲染 {list.map()}
+        let list = this.state.list.map((item, key) => {
+            return <li key={key}>item{item}</li>
+        })
+        return (
+            <div>
+                <p>数组1</p>
+                <ul>{list}</ul>
+
+                <p>数组2</p>
+                <ul>{this.state.list2}</ul>
+            </div>
+        )
+    }
+}
+```
+
+> 注意在遍历数组时给dom指定key  
+
+## 事件方法
+与render()同级定义方法，末尾不需要加逗号(,)
+绑定方法：`onClick={this.yourMethod}`
+=======
 > 行内style样式应该写做： `<span style={styleObj}>`
+>>>>>>> e86b9f2014213a827bda7d0a1d263e32e2055829

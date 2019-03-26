@@ -16,3 +16,7 @@ code {
   font-weight: bold;
   color: rgb(128, 13, 156);
 }
+img{
+  width: 160px;
+  height: auto;
+}
