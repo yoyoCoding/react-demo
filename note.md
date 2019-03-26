@@ -116,11 +116,11 @@ class News extends React.Component {
 `event.target`  
 
 ### 表单事件
+> 实现数据双向绑定  
 1. 监听表单的change事件
 2. 在change事件中获取input的值 (`event.target.value`获取 or ref获取`this.refs.refName.value`)
 3. 将获取到的value赋值给state的变量  
-4. input的value绑定state的数据  
-实现数据双向绑定  
+4. input的value绑定state的数据    
 
 ### 键盘事件
 onKeyUp、onKeyDown等
