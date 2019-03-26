@@ -4,6 +4,7 @@ import './assets/css/App.css'
 // 引入子组件
 import Home from  './components/Home'
 import News from './components/News'
+import Form from './components/Form'
 
 class App extends Component {
   // render模版 jsx
@@ -18,8 +19,9 @@ class App extends Component {
         </header>
 
         {/* 挂载子组件 */}
-        <Home></Home>
+        {/* <Home></Home> */}
         {/* <News></News> */}
+        <Form></Form>
 
       </div>
     );
