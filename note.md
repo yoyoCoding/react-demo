@@ -1,8 +1,8 @@
-**src文件夹比较乱 整理**
+**src文件夹比较乱 整理**  
 新增components(组件)和assets(静态资源)文件夹
 
-**App.js为根组件**
-render()里面放模板 jsx语法(html与js的宏写格式)
+**App.js为根组件**  
+render()里面放模板 jsx语法(html与js的宏写格式)  
 不建议将太多代码放到根组件 应该将子组件挂载到根组件上
 
 **render()里面的return()下如果有多个节点需要使用一个根div节点包起来**
@@ -44,6 +44,6 @@ class Home extends Component {
 ```
 
 > **警告：**
-> 因为 JSX 的特性更接近 JavaScript 而不是 HTML , 所以 React DOM 使用 `camelCase` 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称
-> 例如，`class` 变成了 `className`，而 `tabindex` 则对应着 `tabIndex`， `for`对应`htmlFor`
+> 因为 JSX 的特性更接近 JavaScript 而不是 HTML , 所以 React DOM 使用 `camelCase` 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称  
+> 例如，`class` 变成了 `className`，而 `tabindex` 则对应着 `tabIndex`， `for`对应`htmlFor`  
 > 行内style样式应该写做： `<span style={styleObj}>`
