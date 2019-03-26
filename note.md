@@ -40,12 +40,10 @@ class Home extends Component {
 ```html
 <a href={this.state.link}>我是超链接</a>
 <h3 className="mytitle">我是标题</h3>
-<span style={{color: 'red'}}>
+<span style={{color: 'red'}}>行内样式绑定</span>
 ```
 
 > **警告：**
 > 因为 JSX 的特性更接近 JavaScript 而不是 HTML , 所以 React DOM 使用 `camelCase` 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称
-
 > 例如，`class` 变成了 `className`，而 `tabindex` 则对应着 `tabIndex`， `for`对应`htmlFor`
-
 > 行内style样式应该写做： `<span style={styleObj}>`
