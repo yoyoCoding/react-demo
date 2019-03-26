@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './assets/css/App.css'
+
+// 引入子组件
+import Home from  './components/Home'
+import News from './components/News'
 
 class App extends Component {
+  // render模版 jsx
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
+      {/* 根组件 */}
+        <header>
           <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+            className="App-link" href="javascript:;" target="_blank" rel="noopener noreferrer"
+          >根组件App</a>
         </header>
+
+        {/* 挂载子组件 */}
+        <Home></Home>
+        <News></News>
+
       </div>
     );
   }
