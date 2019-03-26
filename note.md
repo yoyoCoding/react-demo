@@ -47,7 +47,6 @@ class Home extends Component {
 > 因为 JSX 的特性更接近 JavaScript 而不是 HTML , 所以 React DOM 使用 `camelCase` 小驼峰命名 来定义属性的名称，而不是使用 HTML 的属性名称 
 >
 > 例如，`class` 变成了 `className`，而 `tabindex` 则对应着 `tabIndex`， `for`对应`htmlFor`  
-<<<<<<< HEAD
 > 行内style样式应该写做： `<span style={styleObj}>`  
 
 ## 引入本地图片
@@ -101,6 +100,3 @@ class News extends React.Component {
 ## 事件方法
 与render()同级定义方法，末尾不需要加逗号(,)
 绑定方法：`onClick={this.yourMethod}`
-=======
-> 行内style样式应该写做： `<span style={styleObj}>`
->>>>>>> e86b9f2014213a827bda7d0a1d263e32e2055829
