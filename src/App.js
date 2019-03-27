@@ -5,7 +5,8 @@ import './assets/css/App.css'
 // import Home from  './components/Home'
 // import News from './components/News'
 // import Form from './components/Form'
-import ToDoList from './components/ToDoList'
+// import ToDoList from './components/ToDoList'
+import Communication from './components/Communication'
 
 class App extends Component {
   // render模版 jsx
@@ -21,7 +22,8 @@ class App extends Component {
         {/* <Home></Home> */}
         {/* <News></News> */}
         {/* <Form></Form> */}
-        <ToDoList></ToDoList>
+        {/* <ToDoList></ToDoList> */}
+        <Communication></Communication>
 
       </div>
     );

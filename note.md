@@ -130,4 +130,26 @@ onKeyUp、onKeyDown等
 * 非约束性组件：`<input type="text" defaultValue="a" />`  这个 `defaultValue` 其实就是原生DOM中的 `value` 属性。这样写出的来的组件，其value值就是用户输入的内容，React完全不管理输入的过程  
 
 * 约束性组件： `<input value={this.state.username} type="text" onChange={this.handleUsername}  />` 这里的value属性不再是一个写死的值，他是 `this.state.username`, `this.state.username` 是由 `this.handleChange` 负责管理的。这个时候实际上 input 的 `value` 根本不是用户输入的内容。而是 `onChange` 事件触发之后，由于 `this.setState` 导致了一次重新渲染。不过React会优化这个渲染过程，看上去有点类似双向数据绑定
-          
+
+
+## 组件通信
+父子组件传值  
+> 父子组件：组件的相互调用中，我们把调用者成为父组件，被调用者成为子组件  
+* 父组件给子组件传值
+    1. 调用子组件时定义属性 `<Header msg='首页'></Header>`
+    2. 子组件获取属性值 `this.props.msg`  
+
+> 父组件也可以把方法传给子组件调用。父： `<Header run={this.run}></Header>` 子： `<button onClick={this.props.run}>调用父组件的run方法</button>`  
+
+* 父组件主动获取子组件数据
+    1. 调用子组件时指定ref值 `<Header ref='header'></Header>`
+    2. 通过 `this.refs.header` 获取整个子组件实例
+
+> 父组件同样可以把整个父组件实例传给子组件。父： `<Header parent={this}></Header>` 子： `this.props.parent.state.msg`  
+
+* 子组件给父组件传值   
+    1. 父组件把实例传给子组件 `<Header parent={this}></Header>` 
+    2. 父组件定义方法获取子组件数据 `getChildren(value) {console.log(value)}`
+    3. 子组件调用父组件方法并将值传给父组件 `<button onClick={this.props.parent.getChildren.bind(this, this.state.msg)}>`  
+> **Attention**  
+> `this.refs.xxx` 获取组件实例只能在自定义方法和生命周期挂载完成后使用，直接在DOM(jsx)中使用会获取不到

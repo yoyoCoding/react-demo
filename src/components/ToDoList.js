@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+// 引入自定义模块 缓存
+import storage from '../models/storage'
 import '../assets/css/ToDoList.css'
 
 class ToDoList extends Component {
@@ -6,20 +8,7 @@ class ToDoList extends Component {
         super(props)
         this.state = {
             msg: 'ToDoList演示',
-            list: [
-                {
-                    item: '起床',
-                    checked: false
-                },
-                {
-                    item: '刷牙',
-                    checked: false
-                },
-                {
-                    item: '睡觉',
-                    checked: true
-                }
-            ]
+            list: []
         }
     }
 
@@ -37,19 +26,29 @@ class ToDoList extends Component {
                 list: list
             })
         }
+        storage.set('toDoList', list)
     }
     handleChange = (key) => {
-       let list = this.state.list
-       list[key].checked = !list[key].checked
-       this.setState({
+        let list = this.state.list
+        list[key].checked = !list[key].checked
+        this.setState({
            list: list
-       })
+        })
+        storage.set('toDoList', list)
     }
     handleDelete = (key) => {
         let list = this.state.list
         list.splice(key, 1)
         this.setState({
             list: list
+        })
+        storage.set('toDoList', list)
+    }
+
+    // 声明周期函数 - 页面加载完毕
+    componentDidMount() {
+        this.setState({
+            list: storage.get('toDoList') || []
         })
     }
 
