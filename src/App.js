@@ -11,6 +11,25 @@ import './assets/css/App.css'
 import Lifecycle from './components/Lifecycle'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      flag: true,
+      title: '我是App组件的title'
+    }
+  }
+
+  setFlag = () => {
+    this.setState({
+      flag: !this.state.flag
+    })
+  }
+  changeTitle = () => {
+    this.setState({
+      title: '我是App组件的title changed'
+    })
+  }
+
   // render模版 jsx
   render() {
     return (
@@ -27,7 +46,15 @@ class App extends Component {
         {/* <ToDoList></ToDoList> */}
         {/* <Communication></Communication> */}
         {/* <AxiosDemo></AxiosDemo> */}
-        <Lifecycle></Lifecycle>
+
+        {
+          this.state.flag ? <Lifecycle title={this.state.title}></Lifecycle> : ''
+        }
+
+        <hr/>
+
+        <button onClick={this.setFlag}>挂载or销毁组件</button>
+        <button onClick={this.changeTitle}>改变传给Lifecycle组件的title值</button>
 
       </div>
     );
