@@ -218,10 +218,10 @@ fetchJsonp(url)
   
 详情参考 `/src/component/Lifcycle.js`  
 
-> **必须记住的生命周期函数**
-> *加载时：componentWillMount、render、componentDicMount(DOM操作)
-> 更新时：componentWillUpdate、render、componentDidUpdate
-> *销毁时：componentWillUnmount  
+> **必须记住的生命周期函数**  
+> *加载时：componentWillMount、render、componentDicMount(DOM操作)  
+> 更新时：componentWillUpdate、render、componentDidUpdate  
+> *销毁时：componentWillUnmount   
 
 
 
