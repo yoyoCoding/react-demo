@@ -6,7 +6,9 @@ import './assets/css/App.css'
 // import News from './components/News'
 // import Form from './components/Form'
 // import ToDoList from './components/ToDoList'
-import Communication from './components/Communication'
+// import Communication from './components/Communication'
+// import AxiosDemo from './components/AxiosDemo'
+import Lifecycle from './components/Lifecycle'
 
 class App extends Component {
   // render模版 jsx
@@ -23,7 +25,9 @@ class App extends Component {
         {/* <News></News> */}
         {/* <Form></Form> */}
         {/* <ToDoList></ToDoList> */}
-        <Communication></Communication>
+        {/* <Communication></Communication> */}
+        {/* <AxiosDemo></AxiosDemo> */}
+        <Lifecycle></Lifecycle>
 
       </div>
     );

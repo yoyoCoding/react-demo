@@ -154,7 +154,7 @@ onKeyUp、onKeyDown等
 > **Attention**  
 > `this.refs.xxx` 获取组件实例只能在自定义方法和生命周期挂载完成后使用，直接在DOM(jsx)中使用会获取不到
 
-#### defaultPorps和propTypes
+#### 使用defaultPorps和propTypes
 * defaultProps: 默认prop值(父组件不传prop值的情况下)
 * propTypes: 验证父组件传值类型的合法性
 
@@ -172,3 +172,45 @@ Footer.propTypes = {
     num: PropTypes.number
 }
 ```
+
+## 请求数据
+#### axios
+axios的作者觉得jsonp不太友好，推荐使用CORS方式更为干净(后端运行跨域)
+1. 安装 `npm install axios`
+2. 引入 `import axios from 'axios'`
+3. 使用
+```javascript
+axios.get(url)
+.then(res => {
+    console.log(res)
+    this.setState({
+        list: res.data.result
+    })
+})
+.catch(err => {
+    console.log(err)
+})
+```
+
+#### fetch-jsonp
+可通过jsonp跨域请求服务器资源
+1. 安装 `npm install fetch-jsonp`
+2. 引入 `import fetchJsonp from 'fetch-jsonp'`
+3. 使用
+```javascript
+fetchJsonp(url)
+.then(response => {
+    return response.json()
+})
+.then(json => {
+    console.log('parsed josn', json)
+    this.setState({
+        list: json.result
+    })
+})
+.catch(err => {
+    console.log('parsing failed', err)
+})
+```
+
+## 生命周期函数
