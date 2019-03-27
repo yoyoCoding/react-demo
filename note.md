@@ -115,25 +115,25 @@ class News extends React.Component {
 5. 获取事件节点  
 `event.target`  
 
-### 表单事件
+#### 表单事件
 > 实现数据双向绑定  
 1. 监听表单的change事件
 2. 在change事件中获取input的值 (`event.target.value`获取 or ref获取`this.refs.refName.value`)
 3. 将获取到的value赋值给state的变量  
 4. input的value绑定state的数据    
 
-### 键盘事件
+#### 键盘事件
 onKeyUp、onKeyDown等
 获取keyCode`event.keyCode`
 
-### 约束性和非约束性组件
+#### 约束性和非约束性组件
 * 非约束性组件：`<input type="text" defaultValue="a" />`  这个 `defaultValue` 其实就是原生DOM中的 `value` 属性。这样写出的来的组件，其value值就是用户输入的内容，React完全不管理输入的过程  
 
 * 约束性组件： `<input value={this.state.username} type="text" onChange={this.handleUsername}  />` 这里的value属性不再是一个写死的值，他是 `this.state.username`, `this.state.username` 是由 `this.handleChange` 负责管理的。这个时候实际上 input 的 `value` 根本不是用户输入的内容。而是 `onChange` 事件触发之后，由于 `this.setState` 导致了一次重新渲染。不过React会优化这个渲染过程，看上去有点类似双向数据绑定
 
 
 ## 组件通信
-父子组件传值  
+####父子组件传值  
 > 父子组件：组件的相互调用中，我们把调用者成为父组件，被调用者成为子组件  
 * 父组件给子组件传值
     1. 调用子组件时定义属性 `<Header msg='首页'></Header>`
@@ -153,3 +153,22 @@ onKeyUp、onKeyDown等
     3. 子组件调用父组件方法并将值传给父组件 `<button onClick={this.props.parent.getChildren.bind(this, this.state.msg)}>`  
 > **Attention**  
 > `this.refs.xxx` 获取组件实例只能在自定义方法和生命周期挂载完成后使用，直接在DOM(jsx)中使用会获取不到
+
+#### defaultPorps和propTypes
+* defaultProps: 默认prop值(父组件不传prop值的情况下)
+* propTypes: 验证父组件传值的合法性
+
+```javascript
+import PropTypes from 'prop-types'
+class Footer extends Component {
+    //...
+}
+Footer.defaultProps = {
+    title: '默认标题',
+    num: 0
+}
+// 注意大小写
+Footer.propTypes = {
+    num: PropTypes.number
+}
+```

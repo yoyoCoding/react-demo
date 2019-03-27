@@ -7,7 +7,8 @@ class Communication extends Component {
         super(props)
         this.state = {
             msg: 'Communication component',
-            headerMsg: ''
+            headerMsg: '',
+            num: 100
         }
     }
 
@@ -41,7 +42,7 @@ class Communication extends Component {
 
                 <p>以下为子组件 Footer</p>
                 <hr />
-                <Footer ref='footer'></Footer>
+                <Footer ref='footer' num={this.state.num}></Footer>
             </div>
         )
     }
