@@ -10,7 +10,7 @@ class Form extends Component {
             sex: '1',
             city: '北京',
             citys: ['北京', '上海', '广州'],
-            hobbies: [
+            hobby: [
                 {
                     name: '游泳',
                     checked: false
@@ -46,19 +46,25 @@ class Form extends Component {
             city: val
         })
     }
-    handleCheckbox = (ev, str) => {
-        // let val = ev.target.value
-        // this.setState({
-        //     city: val
-        // })
-        console.log(ev.target.value)
-        console.log('str:' + str)
+    handleCheckbox = (key) => {
+        let hobby = this.state.hobby
+        hobby[key].checked = !hobby[key].checked
+        this.setState({
+            hobby: hobby
+        })
+    }
+    handleInfo = (ev) => {
+        let val = ev.target.value
+        this.setState({
+            info: val
+        })
     }
     handleSubmit = (ev) => {
         ev.preventDefault()
         console.log('name:' + this.state.name)
         console.log('sex:' + this.state.sex)
         console.log('city:' + this.state.city)
+        console.log('info:' + this.state.info)
     }
 
     render() {
@@ -69,8 +75,9 @@ class Form extends Component {
                     <p>表单提交数据</p>
                     <p>
                         name: {this.state.name} ||  
-                        sex: {this.state.sex} ||  
-                        city: {this.state.city} ||  
+                        sex: {this.state.sex}
+                        city: {this.state.city}  ||  
+                        info: {this.state.info}
                     </p>
 
                     <div className="item">
@@ -80,8 +87,8 @@ class Form extends Component {
 
                     <div className="item">
                         性别：
-                        <input type="radio" value="1" name="sex" checked={this.state.sex == 1} onChange={this.handleSex}/>男
-                        <input type="radio" value="2" name="sex" checked={this.state.sex == 2} onChange={this.handleSex}/>女
+                        <input type="radio" value="1" name="sex" checked={this.state.sex === '1'} onChange={this.handleSex}/>男
+                        <input type="radio" value="2" name="sex" checked={this.state.sex === '2'} onChange={this.handleSex}/>女
                     </div>
 
                     <div className="item">
@@ -98,14 +105,19 @@ class Form extends Component {
                     <div className="item">
                         爱好：
                         {
-                            this.state.hobbies.map((item, key) => {
+                            this.state.hobby.map((item, key) => {
                                 return (
-                                    <span>
-                                        <input type="checkbox" value={item.name} key={key} checked={item.checked} onChange={this.handleCheckbox} /> {item.name}
+                                    <span key={key}>
+                                        <input type="checkbox" value={item.name} checked={item.checked} onChange={this.handleCheckbox.bind(this, key)} /> {item.name}
                                     </span>
                                 )
                             })
                         }
+                    </div>
+
+                    <div className="item">
+                        备注：
+                        <textarea value={this.state.info} onChange={this.handleInfo}>说明信息</textarea>
                     </div>
                     
                     <div className="item">
