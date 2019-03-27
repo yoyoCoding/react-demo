@@ -4,7 +4,8 @@ import './assets/css/App.css'
 // 引入子组件
 // import Home from  './components/Home'
 // import News from './components/News'
-import Form from './components/Form'
+// import Form from './components/Form'
+import ToDoList from './components/ToDoList'
 
 class App extends Component {
   // render模版 jsx
@@ -19,7 +20,8 @@ class App extends Component {
         {/* 挂载子组件 */}
         {/* <Home></Home> */}
         {/* <News></News> */}
-        <Form></Form>
+        {/* <Form></Form> */}
+        <ToDoList></ToDoList>
 
       </div>
     );

@@ -1,0 +1,55 @@
+
+.item{
+    margin-bottom: 15px;
+}
+.item input{
+    height: 25px;
+    outline: none;
+    padding: 0 10px;
+}
+h4 .tips{
+    font-size: 14px;
+    font-weight: normal;
+}
+.list-item{
+    position: relative;
+    width: 600px;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.list-item::after{
+    display: block;
+    content: '';
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #629A9C;
+}
+.list-item .tips{
+    margin-left: 10px;
+}
+.list-item .del{
+    float: right;
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    line-height: 15px;
+    text-align: center;
+    color: #fff;
+    margin-top: 7px;
+    font-size: 40px;
+    border-radius: 50%;
+    background-color: red;
+    cursor: pointer
+}
+
+.list-item.done{
+    opacity: 0.6;
+}
