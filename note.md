@@ -133,7 +133,7 @@ onKeyUp、onKeyDown等
 
 
 ## 组件通信
-####父子组件传值  
+#### 父子组件传值  
 > 父子组件：组件的相互调用中，我们把调用者成为父组件，被调用者成为子组件  
 * 父组件给子组件传值
     1. 调用子组件时定义属性 `<Header msg='首页'></Header>`
@@ -156,7 +156,7 @@ onKeyUp、onKeyDown等
 
 #### defaultPorps和propTypes
 * defaultProps: 默认prop值(父组件不传prop值的情况下)
-* propTypes: 验证父组件传值的合法性
+* propTypes: 验证父组件传值类型的合法性
 
 ```javascript
 import PropTypes from 'prop-types'
