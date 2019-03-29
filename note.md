@@ -310,6 +310,7 @@ render() {
                     <ul>
                         <li>
                             {/* <Link to='/user/main'>我的主页</Link> */}
+                            <Link to={`${this.props.match.url}/main`}>我的主页</Link>
                         </li>
                         <li>
                             <Link to='/user/info'>个人信息</Link>
