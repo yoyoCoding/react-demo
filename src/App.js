@@ -4,14 +4,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './assets/css/App.css'
 
 // 引入子组件
-import Home from  './components/Home'
-import News from './components/News'
-import NewsDetail from './components/NewsDetail'
-import Form from './components/Form'
-// import ToDoList from './components/ToDoList'
-// import Communication from './components/Communication'
-// import AxiosDemo from './components/AxiosDemo'
-// import Lifecycle from './components/Lifecycle'
+import Home from  './components/Demo_home'
+import Product from './components/Demo_product'
 
 class App extends Component {
   constructor(props) {
@@ -27,16 +21,15 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <h3 className="heading">React请求数据实现 无人点餐收银系统[商品列表 还是那个品详情]</h3>
+
           <header className="header">
             <Link to='/'>首页</Link>
-            <Link to='/news?title=test&id=123'>新闻</Link>
-            <Link to='/form'>表单</Link>
+            <Link to='/product'>产品</Link>
           </header>
 
           <Route exact path='/' component={Home} />
-          <Route path='/news' component={News} />
-          <Route path='/newsDetail/:id' component={NewsDetail} />
-          <Route path='/form' component={Form} />
+          <Route path='/product/:pid' component={Product} />
         </div>
       </Router>
     )

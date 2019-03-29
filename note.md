@@ -97,6 +97,9 @@ class News extends React.Component {
 }
 ```  
 
+## 解析html(直接渲染html标签)
+`<div dangerouslySetInnerHTML={{__html: '<p>我是html标签</p>'}}></div>`  
+
 ## 事件方法
 1. 与render()同级定义方法，末尾不需要加逗号(,)
 绑定方法：`onClick={this.yourMethod}`
@@ -231,12 +234,50 @@ react-router可以让根组件动态地挂载不同的组件
 1. 安装 `npm install react-router-dom`
 2. 引入 `import {BrowserRouter as Router, Route, Link} from 'react-router-dom'`
 3. 使用  
-
+```html
+<Route exact path='/' component={Home} />
+<Route path='/product' component={Product} />
+```
 `exact` 属性，严格匹配  
 `<Router></Router>` 标签内需要有一个根节点div包住   
 
 #### 路由的跳转
-* 页面定义：`<Link to='/path'>页面</link>`  
+* 页面定义：`<Link to='/path'>页面</link>`  (j记得先引入)
+* js跳转：本质上再次触发render()方法, 重新定义return内容
+```javascript
+...
+import { Redirect } from 'react-router-dom'
+class Demo_product extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            jumpFlag: false
+        }
+    }
+
+    jump = () => {
+        this.setState({
+            jumpFlag: true
+        })
+    }
+
+    render() {
+        if(this.state.jumpFlag) {
+            return <Redirect to={{ pathname: '/' }}></Redirect>
+        }
+        return (
+            <div className="product-wrap">
+                <div className="img-box">
+                    ...
+                    <div className="return" onClick={this.jump}>返回</div>
+                    ...
+                </div>
+            </div>
+        )
+    }
+}
+...
+```
 
 
 #### 动态路由&传值
