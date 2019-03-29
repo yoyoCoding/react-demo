@@ -236,7 +236,7 @@ react-router可以让根组件动态地挂载不同的组件
 `<Router></Router>` 标签内需要有一个根节点div包住   
 
 #### 路由的跳转
-* <Link to='/path'>页面</link>  
+* 页面定义：`<Link to='/path'>页面</link>`  
 
 
 #### 动态路由&传值
