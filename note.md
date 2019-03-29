@@ -288,3 +288,41 @@ class Demo_product extends Component {
 * 动态路由  
     1. `<Route path='/newsDetail/:id' component={NewsDetail} />`   
     2. 获得动态路由传值：this.props.match.params.id
+
+
+#### 路由嵌套
+无需在一级路由组件内return(<Router></Router>), 直接定义二级路由即可 
+获取父级路由 `this.props.match.url`  
+
+```javascript
+import { Route, Link } from 'react-router-dom'
+...
+// 引入二级路由组件
+import Main from './Nest_user/Main'
+import Info from './Nest_user/Info'
+...
+render() {
+    return (
+        <div className="user">
+            ...
+            <div className="container">
+                <div className="left-wrap">
+                    <ul>
+                        <li>
+                            <Link to='/user/main'>我的主页</Link>
+                        </li>
+                        <li>
+                            <Link to='/user/info'>个人信息</Link>
+                        </li>
+                    </ul>
+                </div>
+                <div className="right-wrap">
+                    <Route exact path='/user/' component={Main} />
+                    <Route path='/user/main' component={Main} />
+                    <Route path='/user/info' component={Info} />
+                </div>
+            </div>
+        </div>
+    )
+}
+```

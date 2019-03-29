@@ -1,0 +1,20 @@
+.user * {
+    box-sizing: border-box;
+}
+.user .container{
+    overflow: hidden;
+    height: 500px;
+    background-color: #f1f2f1;
+}
+.user .container .left-wrap{
+    width: 200px;
+    height: 100%;
+    float: left;
+}
+.user .container .right-wrap{
+    width: calc(100% - 200px);
+    height: 100%;
+    float: left;
+    background-color: #fff;
+    border: solid 1px #eee;
+}

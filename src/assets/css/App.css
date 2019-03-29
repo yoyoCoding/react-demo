@@ -29,10 +29,12 @@
   color: purple;
 }
 
+
 .header{
-  padding-top: 15px;
+  padding: 15px 15px;
+  background-color: #000;
 }
 .header a{
-  color: #04637e;
+  color:#fff;
   margin-right: 15px;
 }
