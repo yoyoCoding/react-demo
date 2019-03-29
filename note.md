@@ -291,7 +291,7 @@ class Demo_product extends Component {
 
 
 #### 路由嵌套
-无需在一级路由组件内return(<Router></Router>), 直接定义二级路由即可 
+无需在一级路由组件内return(<Router></Router>), 直接定义二级路由即可  
 获取父级路由 `this.props.match.url`  
 
 ```javascript
