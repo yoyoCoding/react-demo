@@ -28,3 +28,11 @@
 .heading{
   color: purple;
 }
+
+.header{
+  padding-top: 15px;
+}
+.header a{
+  color: #04637e;
+  margin-right: 15px;
+}

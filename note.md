@@ -224,4 +224,26 @@ fetchJsonp(url)
 > *销毁时：componentWillUnmount   
 
 
+## 路由使用react-router
+版本：4.x  
+react-router可以让根组件动态地挂载不同的组件  
 
+1. 安装 `npm install react-router-dom`
+2. 引入 `import {BrowserRouter as Router, Route, Link} from 'react-router-dom'`
+3. 使用  
+
+`exact` 属性，严格匹配  
+`<Router></Router>` 标签内需要有一个根节点div包住   
+
+#### 路由的跳转
+* <Link to='/path'>页面</link>  
+
+
+#### 动态路由&传值
+* get传值  
+    1. `/news?id=123`  
+    2. 获取get传值： this.props.location.search (可以使用node内置url模块解析获得具体传值) 
+
+* 动态路由  
+    1. `<Route path='/newsDetail/:id' component={NewsDetail} />`   
+    2. 获得动态路由传值：this.props.match.params.id

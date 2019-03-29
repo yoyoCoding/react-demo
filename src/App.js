@@ -1,14 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
 import './assets/css/App.css'
 
 // 引入子组件
-// import Home from  './components/Home'
-// import News from './components/News'
-// import Form from './components/Form'
+import Home from  './components/Home'
+import News from './components/News'
+import NewsDetail from './components/NewsDetail'
+import Form from './components/Form'
 // import ToDoList from './components/ToDoList'
 // import Communication from './components/Communication'
 // import AxiosDemo from './components/AxiosDemo'
-import Lifecycle from './components/Lifecycle'
+// import Lifecycle from './components/Lifecycle'
 
 class App extends Component {
   constructor(props) {
@@ -19,46 +22,25 @@ class App extends Component {
     }
   }
 
-  setFlag = () => {
-    this.setState({
-      flag: !this.state.flag
-    })
-  }
-  changeTitle = () => {
-    this.setState({
-      title: '我是App组件的title changed'
-    })
-  }
-
   // render模版 jsx
   render() {
     return (
-      <div className="App">
-      {/* 根组件 */}
-        <header>
-          <a className="App-link" href="http://www.baidu.com" target="_blank" rel="noopener noreferrer">根组件App</a>
-        </header>
+      <Router>
+        <div>
+          <header className="header">
+            <Link to='/'>首页</Link>
+            <Link to='/news?title=test&id=123'>新闻</Link>
+            <Link to='/form'>表单</Link>
+          </header>
 
-        {/* 挂载子组件 */}
-        {/* <Home></Home> */}
-        {/* <News></News> */}
-        {/* <Form></Form> */}
-        {/* <ToDoList></ToDoList> */}
-        {/* <Communication></Communication> */}
-        {/* <AxiosDemo></AxiosDemo> */}
-
-        {
-          this.state.flag ? <Lifecycle title={this.state.title}></Lifecycle> : ''
-        }
-
-        <hr/>
-
-        <button onClick={this.setFlag}>挂载or销毁组件</button>
-        <button onClick={this.changeTitle}>改变传给Lifecycle组件的title值</button>
-
-      </div>
-    );
+          <Route exact path='/' component={Home} />
+          <Route path='/news' component={News} />
+          <Route path='/newsDetail/:id' component={NewsDetail} />
+          <Route path='/form' component={Form} />
+        </div>
+      </Router>
+    )
   }
 }
 
-export default App;
+export default App
