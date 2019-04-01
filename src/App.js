@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-
 import './assets/css/App.css'
+// 引入自定义路由模块
+import routes from './models/routers'
 
-// 引入子组件
-import Home from  './components/Nest_home'
-import User from './components/Nest_user'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      flag: true,
       title: '我是App组件的title'
     }
   }
@@ -20,15 +19,27 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <h3 className="heading">嵌套路由 Nest</h3>
-
           <header className="header">
             <Link to='/'>首页</Link>
-            <Link to='/user'>用户中心</Link>
+            <Link to='/news?title=test&id=123'>新闻</Link>
+            <Link to='/form'>表单</Link>
+            <Link to='/user'>用户</Link>
           </header>
 
-          <Route exact path='/' component={Home} />
-          <Route path='/user' component={User} />
+          {/* 渲染路由 */}
+          {
+            routes.map((route, key) => {
+              if(route.exact) {
+                return <Route key={key} exact path={route.path} render={props => (
+                  <route.component {...props} routes={route.routes} />
+                )} />
+              } else {
+                return <Route key={key} path={route.path} render={props => (
+                  <route.component {...props} routes={route.routes} />
+                )} />
+              }
+            })
+          }
         </div>
       </Router>
     )

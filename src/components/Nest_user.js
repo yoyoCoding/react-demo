@@ -14,6 +14,10 @@ class Nest_user extends Component {
         }
     }
 
+    componentDidMount() {
+        console.log(this.props.routes)
+    }
+
     render() {
         return (
             <div className="user">
@@ -31,10 +35,15 @@ class Nest_user extends Component {
                         </ul>
                     </div>
                     <div className="right-wrap">
-                        <Route exact path='/user/' component={Main} />
-                        <Route path='/user/main' component={Main} />
+                        {/* <Route exact path='/user/' component={Main} />
+                        <Route path='/user/main' component={Main} /> */}
                         {/* <Route path='/user/info' component={Info} /> */}
-                        <Route path={`${this.props.match.url}/info`} component={Info} />
+                        {/* <Route path={`${this.props.match.url}/info`} component={Info} /> */}
+                        {
+                            this.props.routes.map((route, key) => {
+                                return <Route exact={route.exact} path={route.path} component={route.component} key={key}/>
+                            })
+                        }
                     </div>
                 </div>
             </div>
