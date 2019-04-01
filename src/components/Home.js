@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button, Icon } from 'antd'
 import '../assets/css/Home.css'
 import imgDemo from '../assets/images/yeah.jpg'
 
@@ -79,6 +80,8 @@ class Home extends Component {
                     <br/>
                     <button onClick={this.setData.bind(this, 'changeValue')}>改变state的msg值</button>
                     <button onClick={this.setDom} data-id='123'>改变dom样式</button>
+                    <Button type='primary'>antd按钮</Button>
+                    <Icon type="form" />
                 </div>
 
                 <hr/>
